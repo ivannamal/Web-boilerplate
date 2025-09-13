@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teachinder — Demo</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="left-nav">
+        <div class="brand">Teachinder</div>
+        <nav class="main-nav" aria-label="main navigation">
+          <a href="#">Teachers</a>
+          <a href="#">Statistics</a>
+          <a href="#">Favorites</a>
+          <a href="#">About</a>
+        </nav>
+      </div>
+
+      <div class="top-controls">
+        <div class="search" role="search" aria-label="search">
+          <input type="search" placeholder="Name, note or age to search" aria-label="search input">
+          <button class="btn">Search</button>
+        </div>
+        <a href="#add-teacher" id="add-teacher-btn" class="btn btn-outline" role="button">Add teacher</a>
+      </div>
+    </header>
+
+    <hr class="separator">
+
+    <!-- Top Teachers -->
+    <h2 class="section-title" id="teachers">Top Teachers</h2>
+
+    <div class="filters" aria-hidden="false">
+      <label>Age <select name="age"><option>18-31</option><option>32-45</option></select></label>
+      <label>Region <select name="region"><option>Europe</option><option>World</option></select></label>
+      <label>Sex <select name="sex"><option>Male</option><option>Female</option></select></label>
+      <label class="checkbox"><input type="checkbox"> Only with photo</label>
+      <label class="checkbox"><input type="checkbox"> Only favorites</label>
+    </div>
+
+    <div class="teachers-grid" role="list">
+      <!-- Teacher 1 -->
+      <a href="#ti-modal">
+      <div class="teacher" role="listitem">
+        <div class="avatar-wrap">
+          <div class="avatar-inset"><img class="avatar" src="https://i.pravatar.cc/200?img=10" alt="Ihor Tkachuk"></div>
+        </div>
+        <h3>Ihor<br><strong>Tkachuk</strong></h3>
+        <div class="subtitle">Chemistry<br><small>Ukraine</small></div>
+      </div>
+</a>
+
+      <!-- Teacher 2 -->
+      <a href="#ti-modal">
+      <div class="teacher">
+        <div class="avatar-wrap">
+          <div class="avatar-inset"><img class="avatar" src="https://i.pravatar.cc/200?img=12" alt="Pragg"></div>
+        </div>
+        <h3>Pragg<br><strong>Rameshbabu</strong></h3>
+        <div class="subtitle">Chess<br><small>India</small></div>
+      </div>
+      </a>
+      <!-- Teacher 3 with star -->
+      <a href="#ti-modal">
+  <div class="teacher">
+  <div class="avatar-box">
+    <div class="avatar-wrap">
+      <div class="avatar-inset">
+        <img class="avatar" src="https://i.pravatar.cc/200?img=28" alt="Floor Jansen">
+      </div>
+    </div>
+    <div class="star" title="Favorite">
+      <img class="star-image" src="star.png" alt="golden star">
+    </div>
+  </div>
+  <h3>Floor<br><strong>Jansen</strong></h3>
+  <div class="subtitle">Vocal<br><small>Denmark</small></div>
+</div>
+      </a>
+
+      <!-- Teacher 4 -->
+      <a href="#ti-modal">
+      <div class="teacher">
+        <div class="avatar-wrap">
+          <div class="avatar-inset"><img class="avatar" src="https://i.pravatar.cc/200?img=14" alt="John Burke"></div>
+        </div>
+
+        <h3>John<br><strong>Burke</strong></h3>
+        <div class="subtitle">Computer Science<br><small>Belgium</small></div>
+      </div>
+      </a>
+
+      <!-- Teacher 5 with star -->
+      <a href="#ti-modal">
+      <div class="teacher">
+          <div class="avatar-box">
+        <div class="avatar-wrap">
+          <div class="avatar-inset"><img class="avatar" src="https://i.pravatar.cc/200?img=32" alt="Ari Tang"></div>
+        </div>
+        <div class="star" title="Favorite">
+      <img class="star-image" src="star.png" alt="golden star">
+    </div>
+          </div>
+        <h3>Ari<br><strong>Tang</strong></h3>
+        <div class="subtitle">Biology<br><small>China</small></div>
+      </div>
+      </a>
+      <!-- Teacher 6 -->
+      <a href="#ti-modal">
+      <div class="teacher">
+        <div class="avatar-wrap">
+          <div class="avatar-inset"><img class="avatar" src="https://i.pravatar.cc/200?img=17" alt="Rachel Andrew"></div>
+        </div>
+        <h3>Rachel<br><strong>Andrew</strong></h3>
+        <div class="subtitle">Medicine<br><small>UK</small></div>
+      </div>
+      </a>
+      <!-- Teacher 7 initials -->
+      <a href="#ti-modal">
+      <div class="teacher">
+        <div class="initials">A.M</div>
+        <h3>Anna<br><strong>Muzychuk</strong></h3>
+        <div class="subtitle">Chess<br><small>Belarus</small></div>
+      </div>
+      </a>
+      <!-- Teacher 8 initials -->
+       <a href="#ti-modal">
+      <div class="teacher">
+        <div class="initials">R.L</div>
+        <h3>Radoslaw<br><strong>Ljubojevic</strong></h3>
+        <div class="subtitle">Physics<br><small>Poland</small></div>
+      </div>
+         </a>
+    </div>
+
+    <hr class="separator">
+
+    <!-- Statistics -->
+    <section class="stats" aria-labelledby="stats-title">
+      <h2 id="stats-title" class="section-title">Statistics</h2>
+
+      <table role="table" aria-label="teacher statistics">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Speciality</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Nationality</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Daisy Alexander</td><td>Chemistry</td><td>28</td><td>Female</td><td>Vietnam</td></tr>
+          <tr><td>Julia Bradley</td><td>Math</td><td>26</td><td>Female</td><td>USA</td></tr>
+          <tr><td>Rita Hart</td><td>Art</td><td>41</td><td>Female</td><td>Ireland</td></tr>
+          <tr><td>Jonathan Jacobs</td><td>Math</td><td>32</td><td>Male</td><td>England</td></tr>
+          <tr><td>Nathaniel White</td><td>Computer Science</td><td>37</td><td>Male</td><td>Austria</td></tr>
+          <tr><td>Frank Medina</td><td>English</td><td>43</td><td>Male</td><td>Italy</td></tr>
+          <tr><td>Ella Curtis</td><td>Chess</td><td>34</td><td>Female</td><td>USA</td></tr>
+          <tr><td>Claire Simmons</td><td>Art</td><td>38</td><td>Female</td><td>Netherlands</td></tr>
+          <tr><td>Benjamin Knight</td><td>Biology</td><td>44</td><td>Male</td><td>Scotland</td></tr>
+          <tr><td>Norma Rose</td><td>Statistics</td><td>36</td><td>Female</td><td>France</td></tr>
+        </tbody>
+      </table>
+
+      <div class="pager">1 &nbsp; 2 &nbsp; 3 &nbsp; ... &nbsp; Last</div>
+    </section>
+
+    <hr class="separator">
+
+    <!-- Favorites -->
+    <section class="favorites" aria-labelledby="fav-title">
+      <h2 id="fav-title" class="section-title">Favorites</h2>
+       <button class="fav-arrow prev" aria-label="Previous"></button>
+       <button class="fav-arrow next" aria-label="Next"></button>
+      <div class="fav-list" role="list">
+        <a href="#ti-modal">
+        <div class="fav-item" role="listitem">
+          <div class="avatar-wrap"><div class="avatar-inset"><img class="avatar" src="https://i.pravatar.cc/200?img=10" alt=""></div></div>
+          <h4>Ihor<br> Tkachuk</h4>
+          <div class="subtitle">Ukraine</div>
+        </div>
+        </a>
+
+        <a href="#ti-modal">
+        <div class="fav-item">
+          <div class="initials" style="width:110px;height:110px;border-width:3px">A.M</div>
+          <h4>Anna<br> Makarevich</h4>
+          <div class="subtitle">Belarus</div>
+        </div>
+        </a>
+
+        <a href="#ti-modal">
+        <div class="fav-item">
+          <div class="avatar-wrap"><div class="avatar-inset"><img class="avatar" src="https://i.pravatar.cc/200?img=14" alt=""></div></div>
+          <h4>John<br> Burke</h4>
+          <div class="subtitle">Belgium</div>
+        </div>
+        </a>
+
+        <a href="#ti-modal">
+        <div class="fav-item">
+          <div class="avatar-wrap"><div class="avatar-inset"><img class="avatar" src="https://i.pravatar.cc/200?img=32" alt=""></div></div>
+          <h4>Ari<br> Tang</h4>
+          <div class="subtitle">China</div>
+        </div>
+        </a>
+
+        <a href="#ti-modal">
+        <div class="fav-item">
+          <div class="avatar-wrap"><div class="avatar-inset"><img class="avatar" src="https://i.pravatar.cc/200?img=28" alt=""></div></div>
+          <h4>Floor<br> Jansen</h4>
+          <div class="subtitle">Denmark</div>
+        </div>
+        </a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p style="margin:0 51px; text-align: justify; color: black">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque facere, hic impedit itaque molestiae sit tempore? Ea in mollitia natus rerum voluptates. Ea ex excepturi facere tempora. Aliquid asperiores hic impedit iusto natus quaerat ratione sit? Culpa iusto optio voluptas voluptate. Enim eveniet fugit iure maiores molestiae, praesentium quia.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eligendi illum in inventore ipsum odio officiis omnis quisquam sed tempora?<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque esse expedita id iusto mollitia, odit sint ullam veritatis vero?</p>
+      <nav style="margin-top:32px; margin-left: 53px; display: flex; gap:20px; font-size: 20px"><a href="#teachers">Teachers</a> &nbsp;&nbsp; <a href="#stats-title">Statistics</a> &nbsp;&nbsp; <a href="#fav-title">Favorites</a> &nbsp;&nbsp; <a href="#">About</a> </nav>
+      <button id="add-teacher-btn-bottom" class="btn btn-outline">Add teacher</button>
+    </footer>
+  </div>
+<!-- Add Teacher -->
+<div id="add-teacher" class="modal-target" aria-hidden="true">
+  <a href="#" class="overlay" aria-label="Close"></a>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="add-teacher-title">
+    <div class="modal__header">
+      <h3 id="add-teacher-title">Add Teacher</h3>
+      <a href="#" class="modal__close" aria-label="Close">×</a>
+    </div>
+
+    <form class="modal__body" action="#" method="post">
+      <!-- Name -->
+      <label class="f">
+        <span>Name</span>
+        <input type="text" name="name" placeholder="Enter name" required>
+      </label>
+
+      <!-- Speciality -->
+      <label class="f">
+        <span>Speciality</span>
+        <select name="speciality" required>
+          <option>Mathematics</option>
+          <option>Chemistry</option>
+          <option>Biology</option>
+          <option>Computer Science</option>
+          <option>English</option>
+          <option>Art</option>
+          <option>Chess</option>
+          <option>Physics</option>
+        </select>
+      </label>
+
+      <!-- Country / City -->
+      <label class="f f-2">
+        <span>Country</span>
+        <select name="country">
+          <option>Ukraine</option><option>USA</option><option>Poland</option>
+          <option>Belgium</option><option>Netherlands</option><option>China</option>
+        </select>
+      </label>
+      <label class="f f-2">
+        <span>City</span>
+        <input type="text" name="city">
+      </label>
+
+      <!-- Email / Phone -->
+      <label class="f f-2">
+        <span>Email</span>
+        <input type="email" name="email">
+      </label>
+      <label class="f f-2">
+        <span>Phone</span>
+        <input type="tel" name="phone">
+      </label>
+
+      <!-- DOB -->
+      <label class="f">
+        <span>Date of birth</span>
+        <input type="date" name="dob">
+      </label>
+
+      <!-- Sex -->
+      <fieldset class="f f-inline">
+        <legend>Sex</legend>
+        <label><input type="radio" name="sex" value="male"> Male</label>
+        <label><input type="radio" name="sex" value="female"> Female</label>
+      </fieldset>
+
+      <!-- Color -->
+      <label class="f f-inline">
+        <span>Background color</span>
+        <input type="color" name="color" value="#ef7f74">
+      </label>
+
+      <!-- Notes -->
+      <label class="f">
+        <span>Notes (optional)</span>
+        <textarea name="notes" rows="4"></textarea>
+      </label>
+
+      <button type="submit" class="btn btn-outline btn-wide">Add</button>
+    </form>
+  </div>
+</div>
+
+<div id="ti-modal" class="ti-target" aria-hidden="true">
+  <a href="#" class="ti-overlay" aria-label="Close"></a>
+
+  <div class="ti-dialog" role="dialog" aria-modal="true" aria-labelledby="ti-title">
+    <div class="ti-head">
+      <h3 id="ti-title">Teacher Info</h3>
+      <a href="#" class="ti-close" aria-label="Close">×</a>
+    </div>
+
+    <div class="ti-body">
+      <img class="ti-photo" src="https://i.pravatar.cc/300?img=10" alt="">
+      <div class="ti-info">
+        <h2 class="ti-name">Example Name</h2>
+        <p class="ti-subject"><strong>Subject</strong></p>
+        <p class="ti-meta">City, Country<br>35, Male</p>
+        <p class="ti-contact">
+          <a href="mailto:example@domain.com">example@domain.com</a><br>
+          <a href="tel:+1000000000">+1 000 000 000</a>
+        </p>
+        <p class="ti-desc">Static description…</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
