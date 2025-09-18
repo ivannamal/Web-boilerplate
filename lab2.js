@@ -11,7 +11,6 @@ const randomHexColor = () =>
     "#"+[0,0,0].map(()=>Math.floor(Math.random()*256).toString(16).padStart(2,"0")).join("");
 const isHex = (s) => typeof s === "string" && /^#([0-9a-f]{6}|[0-9a-f]{3})$/i.test(s);
 
-/** привести course до нормального запису або взяти рандом зі списку */
 function normalizeCourse(course) {
     if (typeof course === "string") {
         const hit = COURSES.find(c => c.toLowerCase() === course.toLowerCase());
@@ -20,7 +19,6 @@ function normalizeCourse(course) {
     return sample(COURSES);
 }
 
-/** підрахунок віку з ISO дати */
 function ageFromDate(iso) {
     if (!iso) return undefined;
     const d = new Date(iso);
@@ -31,9 +29,7 @@ function ageFromDate(iso) {
     return age;
 }
 
-/* ===================== Завдання 1 — нормалізація + merge ===================== */
-
-/** перетворення елементів randomuser → уніфікований інтерфейс */
+// Завдання 1 — нормалізація + merge
 function fromRandomUser(u) {
     return {
         // нові поля
@@ -66,7 +62,6 @@ function fromRandomUser(u) {
     };
 }
 
-/** перетворення additionalUsers → уніфікований інтерфейс */
 function fromAdditionalUser(u) {
     const b_date = u.b_day || u.b_date;
     return {
@@ -133,7 +128,7 @@ export function buildUsers(randomUserMock = [], additionalUsers = []) {
     return [...byKey.values()];
 }
 
-/* ===================== Завдання 2 — валідація об’єкта ===================== */
+//Завдання 2 — валідація об’єкта
 
 const PHONE_PATTERNS = {
     "Germany": /^(?:\+49|0)[\d\s\-()]{8,}$/,
@@ -256,10 +251,10 @@ export function matchPercentage(users, predicate) {
 
 const USERS = buildUsers(randomUserMock, additionalUsers);
 console.log("К-сть користувачів:", USERS.length);
-console.log("1-й користувач:", USERS[0]);
+//console.log("1-й користувач:", USERS[0]);
 
 // Валідація конкретного об’єкта:
-console.log("Валідація:", validateUser(USERS[0]));
+//console.log("Валідація:", validateUser(USERS[0]));
 
 let validatedUsers = []
 for (const z of USERS){
@@ -267,10 +262,10 @@ for (const z of USERS){
         validatedUsers.push(z)
     }
 }
-console.log("Validated users: ", validatedUsers)
+//console.log("Validated users: ", validatedUsers)
 
 // Фільтрація:
-console.log("Norway & Female:", filterUsers(USERS, { country: "Norway", gender: "Female" }).length);
+//console.log("Germany & Female:", filterUsers(USERS, { country: "Germany", gender: "Female" }));
 
 // Сортування:
 console.log("За full_name ASC, перші 3:", sortUsers(USERS, "full_name", "asc").slice(0,3).map(u=>u.full_name));
