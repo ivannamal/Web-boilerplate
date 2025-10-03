@@ -1,19 +1,33 @@
 :root{
-  --accent:#ef7f74;
-  --accent-dark:#e86a5f;
-  --muted:#a9a9a9;
-  --bg:#ffffff;
-  --text:#333;
-  --max-width:980px;
+  --accent:       #ef7f74;   /* основний акцентний колір */
+  --accent-dark:  #e86a5f;   /* темніший відтінок акценту */
+  --muted:        #a9a9a9;   /* приглушений сірий (для бордерів, підписів) */
+  --bg:           #ffffff;   /* колір фону сторінки */
+  --text:         #333;      /* основний колір тексту */
+  --max-width:    980px;     /* максимальна ширина контейнера */
 }
 
-*{box-sizing:border-box}
+*{box-sizing:border-box} /*ширина і висота рахується разом з padding і border*/
 html,body{height:100%;margin:0;background:#fafafa;color:var(--text);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
 a{color:var(--accent)}
-.container{max-width:var(--max-width);margin:30px auto;padding:0 20px;border:1px solid #e5e5e5;box-shadow:0 0 8px rgba(0,0,0,0.5);}
+.container{ /* верт. прямокутник де все*/
+  max-width: var(--max-width);
+  margin: 24px auto;
+  padding: 16px 20px;
+  background: var(--bg);
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+}
 
-header{display:flex;align-items:center;justify-content:space-between;padding:18px 30px 22px}
-.brand{
+header{
+  display:flex;
+  align-items:center; /*cross axis (y) */
+  justify-content:space-between; /* |x  x  x| */
+  padding:18px 30px 22px;
+}
+
+.brand{ /*гігантський Teachinder*/
   font-family:"Playfair Display",serif;
   font-size:56px;
   font-weight:800;
@@ -80,19 +94,7 @@ table th:focus-visible::after{content:"";position:absolute;left:0;right:0;bottom
 
 .pager{margin-top:10px;margin-left:59px;color:#1ab7d9;font-size:13px}
 
-.favorites{margin:30px 0}
-.fav-list{display:flex;gap:32px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px}
-.fav-item{text-align:center;width:120px}
-.fav-item .avatar-wrap{width:110px;height:110px}
-.fav-item h4{margin:8px 0 4px;font-size:14px}
-.fav-item .subtitle{font-size:12px;color:var(--muted)}
-
-footer{margin-top:24px;padding:18px 0 60px;text-align:center;color:var(--muted);font-size:14px}
-footer nav a{text-decoration:none}
-footer nav a:hover{text-decoration:underline}
-#add-teacher-btn-bottom{display:block;margin-left:auto;margin-right:40px;font-size:17px}
-
-.favorites{position:relative}
+.favorites{position:relative; margin:30px 0}
 .fav-list{
   display:flex;
   gap:32px;
@@ -104,7 +106,16 @@ footer nav a:hover{text-decoration:underline}
   scroll-snap-type:x mandatory;
   padding:10px 56px;
 }
-.fav-item{scroll-snap-align:center}
+.fav-item{scroll-snap-align:center; text-align:center;width:120px}
+.fav-item .avatar-wrap{width:110px;height:110px}
+.fav-item h4{margin:8px 0 4px;font-size:14px}
+.fav-item .subtitle{font-size:12px;color:var(--muted)}
+
+footer{margin-top:24px;padding:18px 0 60px;text-align:center;color:var(--muted);font-size:14px}
+footer nav a{text-decoration:none}
+footer nav a:hover{text-decoration:underline}
+#add-teacher-btn-bottom{display:block;margin-left:auto;margin-right:40px;font-size:17px}
+
 .fav-arrow{
   position:absolute;
   top:50%;
@@ -174,18 +185,6 @@ table th:hover{background:#f2eef2}
 
 a{text-decoration:none;color:inherit}
 
-@media (max-width:520px){
-  .modal__body{grid-template-columns:1fr}
-  .f-2{grid-column:1 / -1}
-}
-
-@media (max-width:560px){
-  .brand{font-size:28px}
-  .teachers-grid{gap:18px}
-  header{flex-direction:column;align-items:flex-start;gap:12px}
-  .top-controls{width:100%;justify-content:space-between}
-}
-
 @media (max-width:1024px){
   .container{max-width:900px;padding:0 16px;margin:20px auto;}
   header{padding:14px 0 18px;}
@@ -195,13 +194,13 @@ a{text-decoration:none;color:inherit}
 }
 
 @media (max-width:768px){
-  header{flex-direction:column;align-items:flex-start;gap:12px}
+  header{flex-direction:column;gap:12px}
   .left-nav{width:100%}
   nav.main-nav{margin-top:8px;flex-wrap:wrap;gap:14px}
-  .top-controls{width:100%;align-items:stretch;gap:10px;margin-top:6px}
+  .top-controls{width:50%; gap:10px;margin-top:6px; margin-left: 25%}
   .search{width:100%}
   .search input{width:100%}
-  #add-teacher-btn{margin:0;align-self:stretch}
+  #add-teacher-btn{margin:0; align-self: center}
   .filters{gap:10px;justify-content:flex-start;margin-bottom:14px}
   .filters > *:not(:last-child){border-right:none;padding-right:0}
   .filters label{display:flex;align-items:center;gap:8px}
@@ -213,37 +212,4 @@ a{text-decoration:none;color:inherit}
   .teacher .subtitle{font-size:12px}
   .stats{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .stats table{min-width:640px;margin:12px 0}
-}
-
-@media (max-width:560px){
-  .brand{font-size:28px}
-  h2.section-title{font-size:20px;margin:4px 0 12px}
-  .teachers-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:16px;padding:6px 8px 0}
-  .avatar-wrap{width:100px;height:100px}
-  .initials{width:100px;height:100px}
-  .teacher h3{font-size:14px}
-  .teacher .subtitle{font-size:11px}
-  .btn,#add-teacher-btn{width:100%}
-  .fav-arrow{display:none}
-  .fav-list{flex-wrap:wrap;gap:20px;justify-content:center;padding:8px}
-  table{font-size:13px}
-  table thead th,table td{padding:8px 6px}
-}
-
-@media (max-width:400px){
-  .container{padding:0 12px}
-  nav.main-nav{gap:12px}
-  .teachers-grid{grid-template-columns:repeat(2,1fr);gap:14px}
-  .avatar-wrap,.initials{width:92px;height:92px}
-  .teacher h3{font-size:13px}
-  table{font-size:12px}
-}
-
-.site-footer nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
-@media (max-width:560px){
-  .site-footer nav{gap:16px;font-size:16px}
-  #add-teacher-btn-bottom{width:100%}
-}
-@media (max-width:400px){
-  .site-footer nav{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 18px;justify-items:center}
 }

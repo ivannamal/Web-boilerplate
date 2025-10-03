@@ -3,7 +3,7 @@ export const COURSES = [
     "Biology","Chemistry","Law","Art","Medicine","Statistics"
 ];
 
-const sample = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const randomCourse = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const makeFirstLetterCapital = (s) => typeof s === "string" ? s.slice(0,1).toUpperCase()+s.slice(1) : s;
 const currentYear = new Date().getFullYear();
 const genId = () => crypto.randomUUID();
@@ -16,7 +16,7 @@ function normalizeCourse(course) {
         const hit = COURSES.find(c => c.toLowerCase() === course.toLowerCase());
         if (hit) return hit;
     }
-    return sample(COURSES);
+    return randomCourse(COURSES);
 }
 
 function ageFromDate(iso) {
@@ -183,7 +183,7 @@ export function validateUser(user) {
     return { valid: errors.length === 0, errors };
 }
 
-//  Завдання 3 — фільтрація (логічне "І")
+//  Завдання 3 — фільтрація
 /** params: { country?, age?, gender?, favorite? } */
 export function filterUsers(users, params = {}) {
     const { country, age, gender, favorite } = params;
@@ -265,7 +265,7 @@ for (const z of USERS){
 //console.log("Validated users: ", validatedUsers)
 
 // Фільтрація:
-//console.log("Germany & Female:", filterUsers(USERS, { country: "Germany", gender: "Female" }));
+console.log("Germany & Female:", filterUsers(USERS, { country: "Germany", gender: "Female" }));
 
 // Сортування:
 console.log("За full_name ASC, перші 3:", sortUsers(USERS, "full_name", "asc").slice(0,3).map(u=>u.full_name));
